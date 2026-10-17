@@ -102,7 +102,9 @@
 
 <div class="card" style="display:flex; gap:10px; align-items:center;">
     @if ($order->confirmed_at)
-        <span class="muted">Confirmed on {{ $order->confirmed_at->format('d M Y, H:i') }}. Stock has been reserved.</span>
+        <span class="muted">Confirmed on {{ $order->confirmed_at->format('d M Y, H:i') }}. Stock has been reserved.
+            <a href="{{ route('orders.confirmation', $order) }}" class="btn secondary">View confirmation</a>
+        </span>
     @elseif ($order->status === 'unfulfillable')
         <span class="muted">This order cannot be confirmed because no stock is available.</span>
     @else
