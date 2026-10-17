@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class DeliveryTimeEstimator
 {
-    private ?array $byWarehouse = null;
+    private ?array $byWarehouse = null; //Initiate 
 
     /** Estimated minutes for a warehouse at a given moment, or null if no history. */
     public function estimate(int $warehouseId, Carbon $when): ?float

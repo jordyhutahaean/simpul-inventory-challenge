@@ -66,7 +66,7 @@ class OrderController extends Controller
 
         return redirect()->route('orders.show', $order);
     }
-    
+
     public function confirm(Order $order)
     {
         if ($order->confirmed_at) {
@@ -100,7 +100,7 @@ class OrderController extends Controller
 
         return redirect()->route('orders.confirmation', $order);
     }
-
+//
     public function confirmation(Order $order)
     {
         if (!$order->confirmed_at) {
