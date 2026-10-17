@@ -1,5 +1,5 @@
 # Replace the app name with something unique (lowercase letters, numbers, dashes)
-app = "REPLACE-WITH-UNIQUE-NAME"
+app = "simpul-inventory-challenge"
 primary_region = "sin"   # Singapore, closest Fly region to Indonesia
 
 [build]
