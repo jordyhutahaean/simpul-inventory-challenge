@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('sku')->unique();
+            $table->string('sku')->unique();    //P001, P002, ...
+            $table->string('category');         //Medical Supplies, Pharmaceutical
+            $table->boolean('requires_cold_chain')->default(false);
             $table->timestamps();
         });
     }

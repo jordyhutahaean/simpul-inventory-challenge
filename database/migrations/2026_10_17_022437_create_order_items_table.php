@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('order_id')
+                ->constrained('orders')
+                ->cascadeOnDelete();
+
+            $table->foreignId('product_id')
+                ->constrained('products');
+
+            // null = this quantity could not be supplied (shortfall)
+            $table->foreignId('warehouse_id')
+                ->nullable()
+                ->constrained('warehouses');
+
+            $table->unsignedInteger('quantity');
+
             $table->timestamps();
         });
     }
