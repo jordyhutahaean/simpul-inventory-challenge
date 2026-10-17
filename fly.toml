@@ -1,0 +1,30 @@
+# Replace the app name with something unique (lowercase letters, numbers, dashes)
+app = "REPLACE-WITH-UNIQUE-NAME"
+primary_region = "sin"   # Singapore, closest Fly region to Indonesia
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  APP_NAME = "Warehouse Allocator"
+  APP_ENV = "production"
+  APP_DEBUG = "false"
+  APP_URL = "https://REPLACE-WITH-UNIQUE-NAME.fly.dev"
+  DB_CONNECTION = "sqlite"
+  SESSION_DRIVER = "file"
+  CACHE_STORE = "file"
+  QUEUE_CONNECTION = "sync"
+  LOG_CHANNEL = "stderr"
+  PORT = "8080"          # read by docker/start.sh
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"    # sleep when idle
+  auto_start_machines = true     # wake on the next request
+  min_machines_running = 0
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
